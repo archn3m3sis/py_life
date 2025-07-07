@@ -16,9 +16,13 @@ if config.config_file_name is not None:
 
 # add your model's MetaData object here
 # for 'autogenerate' support
-# from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
-target_metadata = None
+from py_life.models.core.base import Base
+# Import all models so they're registered with Base
+from py_life.models.core.models import User, MagicLink, Role, Permission, UserRole, RolePermission
+from py_life.models.associations.family import Family
+from py_life.models.associations.family_member import FamilyMember
+from py_life.models.associations.family_invitation import FamilyInvitation
+target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
